@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Overview } from "@/components/overview";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
-import { getTotalPrice } from "@/actions/get-total-price";
+import { getTotalPriceOfAllReservations } from "@/actions/get-total-price";
 import { getReservationsCount } from "@/actions/get-reservations-count";
 import { getGraphPrice } from "@/actions/get-graph-price";
 import { getListingsCount } from "@/actions/get-listings-count";
@@ -19,7 +19,7 @@ interface DashboardPageProps {
 const DashboardPage: React.FC<DashboardPageProps> = async ({ 
   params
 }) => {
-  const totalPrice = await getTotalPrice(params.userId);
+  const totalPrice = await getTotalPriceOfAllReservations();
   const graphPrice = await getGraphPrice(params.userId);
   const reservationsCount = await getReservationsCount(params.userId);
   const ListingsCount = await getListingsCount(params.userId);
