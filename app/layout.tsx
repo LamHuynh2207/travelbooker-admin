@@ -1,34 +1,25 @@
-import { Inter } from 'next/font/google'
-
-import { ToastProvider } from '@/providers/toast-provider'
-import { ThemeProvider } from '@/providers/theme-provider'
-
-import './globals.css'
+import Nav from '@/components/nav';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Admin Dashboard',
-  description: 'Admin Dashboard',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-      <html lang="en">
-        <body className={inter.className}>
-          <ThemeProvider 
-            attribute="class" 
-            defaultTheme="system" 
-            enableSystem
-          >
-            <ToastProvider />
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
+    <html lang="en">
+      <body className={inter.className}>
+         <Nav/>
+        {children}
+      </body>
+    </html>
   )
 }
