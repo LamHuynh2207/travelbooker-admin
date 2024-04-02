@@ -10,7 +10,8 @@ import { Session } from "next-auth";
 
 const navigation = [
   { name: 'Users', href: '/' },
-  { name: 'Analytics', href: '/analytics' }
+  { name: 'Analytics', href: '/analytics' },
+  { name: 'Listings', href: '/listings' }
 ];
 
 function classNames(...classes: string[]) {
